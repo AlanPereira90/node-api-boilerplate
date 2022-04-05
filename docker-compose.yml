@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  api:
+    image: 'node-api-boilarplate'
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: node-api-boilarplate
+    ports:
+      - 6060:6060
+    env_file: .env
+    volumes:
+      - ./src:/api/src
