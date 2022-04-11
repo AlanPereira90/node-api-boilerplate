@@ -1,14 +1,9 @@
-import express from 'express';
+import 'reflect-metadata';
 
-import routes from './application/routes';
-import { CONFIG } from './domain/utils/environment';
+//import './domain/config/di';
+import './application/config/di';
 
-const app: express.Express = express();
+import { App } from './application/setup/App';
 
-const port: number = CONFIG.PORT;
-
-app.use(routes);
-
-app.listen(port, () => {
-  console.info(`Server started on port ${port}`);
-});
+const app = new App();
+app.listen();
